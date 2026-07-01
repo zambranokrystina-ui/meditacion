@@ -75,6 +75,10 @@
   .done-check svg{width:26px;height:26px}
   .done-title{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--brown);margin-bottom:6px}
   .done-text{font-size:.95rem;color:var(--brown-soft);max-width:20em;margin:0 auto 20px}
+  .wa-fallback{font-size:.8rem;color:var(--brown-soft);margin:12px auto 0;max-width:22em}
+  .wa-fallback a{color:var(--olive-deep);font-weight:600}
+  .bring{font-size:.9rem;color:var(--brown);background:rgba(142,148,85,.12);border:1px solid rgba(142,148,85,.28);border-radius:12px;padding:11px 16px;max-width:22em;margin:0 auto 20px;line-height:1.55}
+  .bring strong{font-weight:600}
 
   footer{margin-top:34px;text-align:center;line-height:1.7}
   footer .orgs{font-size:.78rem;color:var(--brown-soft)}
@@ -124,12 +128,14 @@
           <div class="done-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
           <p class="done-title" id="doneTitle">¡Listo!</p>
           <p class="done-text">Tu lugar está guardado. Únete al grupo de WhatsApp para los detalles del sábado.</p>
+          <p class="bring">🧘 Trae tu <strong>yoga mat</strong>, <strong>almohada</strong>, <strong>cobija</strong> y <strong>ropa cómoda</strong>.</p>
           <div class="actions">
-            <a class="btn btn-primary" id="waBtn" href="#" target="_top" rel="noopener">
+            <a class="btn btn-primary" id="waBtn" href="#" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.7 2.9 1.1 4.7 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
               Unirme al grupo de WhatsApp
             </a>
           </div>
+          <p class="wa-fallback">Si no abre, entra directo aquí: <a id="waLink" href="#" target="_blank" rel="noopener">abrir el grupo</a></p>
         </div>
 
         <div class="actions">
@@ -162,6 +168,7 @@
   const waBtn=document.getElementById('waBtn');
   const doneTitle=document.getElementById('doneTitle');
   waBtn.href=WHATSAPP_URL;
+  var waLink=document.getElementById('waLink'); if(waLink){ waLink.href=WHATSAPP_URL; }
 
   const validEmail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
