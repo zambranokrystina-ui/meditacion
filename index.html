@@ -150,7 +150,7 @@
   /* ============================================================
      ⚠️  CONFIGURA ESTAS DOS LÍNEAS
      ============================================================ */
-  const SCRIPT_URL   = "https://script.google.com/macros/s/AKfycbz5Xx1DRoHqCUhrOLtROvr4b0KFMG1dydtYmBQHK7kZur0gzWHgw4a6ezkh7Vmo2QB1/exec";   // hoja de cálculo (Apps Script)
+  const SCRIPT_URL   = "https://script.google.com/macros/s/AKfycbwP-ugRaQwpkoli6atOdR9f0DD6CUs2_IWVn30ch2McEDuwUochlsThqXCVD2xaWv4g/exec";   // hoja de cálculo (Apps Script)
   const WHATSAPP_URL = "https://chat.whatsapp.com/KYbdi3QnB1U1vl3eGzMDkv";  // grupo del evento
   /* ============================================================ */
 
@@ -165,12 +165,14 @@
 
   const validEmail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
+  const framed = window.self !== window.top;   // ¿está dentro de un iframe?
   function finish(nombre){
     doneTitle.textContent = nombre ? ('¡Gracias, '+nombre.split(' ')[0]+'!') : '¡Listo!';
     formSection.style.display='none';
     document.querySelector('.form-note').style.display='none';
     doneSection.style.display='block';
-    if(!WHATSAPP_URL.includes('REEMPLAZAR')){ setTimeout(()=>{window.location.href=WHATSAPP_URL;},1400); }
+    // Página normal: abre WhatsApp solo. En iframe: el botón (target=_top) escapa el marco.
+    if(!framed && !WHATSAPP_URL.includes('REEMPLAZAR')){ setTimeout(()=>{window.location.href=WHATSAPP_URL;},1400); }
   }
 
   form.addEventListener('submit',function(ev){
@@ -188,13 +190,12 @@
 
     if(SCRIPT_URL.includes('PEGA_AQUI')){console.warn('Configura SCRIPT_URL para guardar en la hoja.');finish(nombre);return;}
 
-    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
-      .then(()=>finish(nombre))
-      .catch(()=>{
-        const img=new Image();
-        img.onload=img.onerror=()=>finish(nombre);
-        img.src=SCRIPT_URL+'?'+data.toString();
-      });
+    // Envío por image-ping (GET): funciona igual en página normal y dentro de un iframe.
+    const img=new Image();
+    let sent=false; const go=()=>{ if(!sent){sent=true;finish(nombre);} };
+    img.onload=img.onerror=go;
+    img.src=SCRIPT_URL+'?'+data.toString();
+    setTimeout(go,2500);   // respaldo por si el navegador no dispara el evento
   });
 </script>
 </body>
