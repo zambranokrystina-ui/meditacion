@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadena de amor por Venezuela · Catatumbo Ranch</title>
+<meta name="description" content="Del miedo a la calma. Meditación colectiva por Venezuela. Sábado 4 de julio, 10:00 a.m., Catatumbo Ranch, Katy TX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brown:#3E2C1E;--brown-soft:#6E5A45;--clay:#BE7A4A;
+    --olive:#8E9455;--olive-deep:#5F6538;--gold:#D6A860;
+    --ve-yellow:#E8B93B;--ve-blue:#2A4A9C;--ve-red:#C23B3B;
+    --sand:#EFE7D3;--cream:#F7F0E1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;color:var(--brown);
+    background:linear-gradient(180deg,#F2EAD7 0%,var(--sand) 50%,#E3D6BB 100%);
+    min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:42px 22px;overflow-x:hidden;line-height:1.5;
+  }
+  .stage{position:relative;width:100%;max-width:440px;text-align:center}
+  .breath{
+    position:absolute;left:50%;top:96px;width:330px;height:330px;
+    transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle at 50% 45%,rgba(214,168,96,.42) 0%,rgba(190,122,74,.20) 40%,rgba(142,148,85,0) 70%);
+    filter:blur(6px);z-index:0;animation:breathe 9s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.85);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.06);opacity:1}}
+  .content{position:relative;z-index:1}
+  .stars{width:132px;height:auto;margin:0 auto 16px;display:block;filter:drop-shadow(0 2px 4px rgba(180,128,52,.25))}
+  .eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--olive-deep);margin-bottom:14px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.05rem,8.8vw,2.9rem);line-height:1.04;letter-spacing:-.01em;color:var(--brown);margin-bottom:8px}
+  .sub{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,5.2vw,1.6rem);color:var(--clay);margin-bottom:16px}
+  .flag{display:flex;gap:5px;justify-content:center;margin:0 auto 18px}
+  .flag span{width:28px;height:6px;border-radius:3px}
+  .flag span:nth-child(1){background:var(--ve-yellow)}
+  .flag span:nth-child(2){background:var(--ve-blue)}
+  .flag span:nth-child(3){background:var(--ve-red)}
+  .lede{font-size:.98rem;color:var(--brown-soft);max-width:21em;margin:0 auto 24px}
+
+  .card{display:inline-flex;flex-direction:column;gap:11px;background:var(--cream);border:1px solid rgba(142,148,85,.28);border-radius:16px;padding:15px 24px;margin-bottom:16px;box-shadow:0 6px 24px rgba(62,44,30,.07)}
+  .card .row{display:flex;align-items:center;gap:11px;font-size:.96rem;color:var(--brown)}
+  .card .row strong{font-weight:600}
+  .card svg{width:17px;height:17px;flex:none;color:var(--olive)}
+  .card .sep{height:1px;background:rgba(142,148,85,.2)}
+  .hosts{font-size:.83rem;color:var(--brown-soft);margin-bottom:26px}
+  .hosts strong{color:var(--brown);font-weight:600}
+
+  .panel{max-width:344px;margin:0 auto}
+  .field{text-align:left;margin-bottom:11px}
+  .field label{display:block;font-size:.75rem;font-weight:600;color:var(--olive-deep);margin:0 0 5px 3px;letter-spacing:.03em}
+  .field input{width:100%;font-family:'Inter',sans-serif;font-size:1rem;color:var(--brown);background:var(--cream);border:1.5px solid rgba(142,148,85,.38);border-radius:12px;padding:13px 15px;outline:none;transition:border-color .15s,box-shadow .15s}
+  .field input::placeholder{color:#B3A793}
+  .field input:focus{border-color:var(--olive);box-shadow:0 0 0 3px rgba(142,148,85,.16)}
+  .form-error{color:#B4442F;font-size:.84rem;min-height:1.1em;margin:2px 0 8px;text-align:center}
+  .form-note{font-size:.78rem;color:var(--brown-soft);margin:10px 4px 0;line-height:1.5}
+
+  .actions{display:flex;flex-direction:column;gap:11px;align-items:center;margin-top:14px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;width:100%;font-size:1.03rem;font-weight:600;padding:16px 24px;border-radius:999px;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,opacity .18s}
+  .btn-primary{background:linear-gradient(135deg,var(--olive) 0%,var(--olive-deep) 100%);color:var(--cream);box-shadow:0 8px 22px rgba(95,101,56,.32)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(95,101,56,.38)}
+  .btn-primary:disabled{opacity:.6;cursor:default;transform:none}
+  .btn-primary svg{width:22px;height:22px}
+  .btn-map{background:transparent;color:var(--brown);border:1.5px solid rgba(62,44,30,.26);font-weight:500}
+  .btn-map:hover{background:rgba(62,44,30,.05);transform:translateY(-1px)}
+  .btn-map svg{width:18px;height:18px;color:var(--clay)}
+
+  #doneSection{display:none}
+  .done-check{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;background:rgba(142,148,85,.16);display:flex;align-items:center;justify-content:center;color:var(--olive-deep)}
+  .done-check svg{width:26px;height:26px}
+  .done-title{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--brown);margin-bottom:6px}
+  .done-text{font-size:.95rem;color:var(--brown-soft);max-width:20em;margin:0 auto 20px}
+
+  footer{margin-top:34px;text-align:center;line-height:1.7}
+  footer .orgs{font-size:.78rem;color:var(--brown-soft)}
+  footer .orgs strong{color:var(--brown);font-weight:600}
+  footer .credit{font-size:.68rem;color:#B0A48D;margin-top:6px;letter-spacing:.02em}
+  @media (prefers-reduced-motion:reduce){.breath{animation:none;transform:translate(-50%,-50%) scale(1)}.btn{transition:none}}
+</style>
+</head>
+<body>
+  <main class="stage">
+    <div class="breath" aria-hidden="true"></div>
+    <div class="content">
+      <svg class="stars" viewBox="0 0 150 58" fill="var(--gold)" stroke="rgba(180,128,52,.55)" stroke-width="0.5" stroke-linejoin="round" aria-hidden="true"><polygon points="16.00,13.04 17.50,17.37 22.09,17.47 18.43,20.23 19.76,24.62 16.00,22.00 12.24,24.62 13.57,20.23 9.91,17.47 14.50,17.37"/><polygon points="32.86,21.15 34.36,25.48 38.94,25.58 35.29,28.34 36.62,32.73 32.86,30.11 29.10,32.73 30.42,28.34 26.77,25.58 31.35,25.48"/><polygon points="49.71,26.56 51.22,30.89 55.80,30.98 52.15,33.75 53.48,38.14 49.71,35.52 45.95,38.14 47.28,33.75 43.63,30.98 48.21,30.89"/><polygon points="66.57,29.26 68.08,33.59 72.66,33.68 69.01,36.45 70.33,40.84 66.57,38.22 62.81,40.84 64.14,36.45 60.48,33.68 65.07,33.59"/><polygon points="83.43,29.26 84.93,33.59 89.52,33.68 85.86,36.45 87.19,40.84 83.43,38.22 79.67,40.84 80.99,36.45 77.34,33.68 81.92,33.59"/><polygon points="100.29,26.56 101.79,30.89 106.37,30.98 102.72,33.75 104.05,38.14 100.29,35.52 96.52,38.14 97.85,33.75 94.20,30.98 98.78,30.89"/><polygon points="117.14,21.15 118.65,25.48 123.23,25.58 119.58,28.34 120.90,32.73 117.14,30.11 113.38,32.73 114.71,28.34 111.06,25.58 115.64,25.48"/><polygon points="134.00,13.04 135.50,17.37 140.09,17.47 136.43,20.23 137.76,24.62 134.00,22.00 130.24,24.62 131.57,20.23 127.91,17.47 132.50,17.37"/></svg>
+      <p class="eyebrow">Meditación colectiva</p>
+      <h1>Cadena de amor<br>por Venezuela</h1>
+      <p class="sub">Del miedo a la calma</p>
+      <div class="flag" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="lede">Nos unimos para soltar el miedo y volver a la calma, con el corazón puesto en Venezuela. Regístrate y te unes al grupo.</p>
+
+      <div class="card">
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>10:00 a.m.</strong></span></div>
+        <div class="sep"></div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg><span>Sábado 4 de julio</span></div>
+        <div class="sep"></div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0114 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Catatumbo Ranch · Katy, TX</span></div>
+      </div>
+      <p class="hosts"><strong>Krystina Zambrano</strong> · <strong>María Bracho</strong> · <strong>Joselin Ramírez</strong></p>
+
+      <div class="panel">
+        <div id="formSection">
+          <form id="regForm" novalidate>
+            <div class="field"><label for="nombre">Nombre</label><input id="nombre" type="text" placeholder="Tu nombre y apellido" autocomplete="name"></div>
+            <div class="field"><label for="email">Correo</label><input id="email" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email"></div>
+            <div class="field"><label for="telefono">Teléfono (WhatsApp)</label><input id="telefono" type="tel" placeholder="(000) 000-0000" autocomplete="tel"></div>
+            <div class="form-error" id="formError"></div>
+            <div class="actions">
+              <button type="submit" class="btn btn-primary" id="submitBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.7 2.9 1.1 4.7 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+                Registrarme y unirme
+              </button>
+            </div>
+          </form>
+          <p class="form-note">Guardamos tu nombre, correo y teléfono solo para este evento. Al registrarte te unes al grupo de WhatsApp.</p>
+        </div>
+
+        <div id="doneSection">
+          <div class="done-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+          <p class="done-title" id="doneTitle">¡Listo!</p>
+          <p class="done-text">Tu lugar está guardado. Únete al grupo de WhatsApp para los detalles del sábado.</p>
+          <div class="actions">
+            <a class="btn btn-primary" id="waBtn" href="#" target="_top" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.7 2.9 1.1 4.7 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+              Unirme al grupo de WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=Catatumbo+Ranch+3138+Schlipf+Rd+Katy+TX+77493" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0114 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            Cómo llegar · 3138 Schlipf Rd
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="orgs">Organizan · <strong>Manifiesto Abundancia</strong> · <strong>Mia Bienestar</strong> · <strong>Josy R</strong> · <strong>Catatumbo Ranch</strong></div>
+    <div class="credit">Sitio por Mercadeo MRR LLC</div>
+  </footer>
+
+<script>
+  /* ============================================================
+     ⚠️  CONFIGURA ESTAS DOS LÍNEAS
+     ============================================================ */
+  const SCRIPT_URL   = "https://script.google.com/macros/s/AKfycbz5Xx1DRoHqCUhrOLtROvr4b0KFMG1dydtYmBQHK7kZur0gzWHgw4a6ezkh7Vmo2QB1/exec";   // hoja de cálculo (Apps Script)
+  const WHATSAPP_URL = "https://chat.whatsapp.com/KYbdi3QnB1U1vl3eGzMDkv";  // grupo del evento
+  /* ============================================================ */
+
+  const form=document.getElementById('regForm');
+  const btn=document.getElementById('submitBtn');
+  const errBox=document.getElementById('formError');
+  const formSection=document.getElementById('formSection');
+  const doneSection=document.getElementById('doneSection');
+  const waBtn=document.getElementById('waBtn');
+  const doneTitle=document.getElementById('doneTitle');
+  waBtn.href=WHATSAPP_URL;
+
+  const validEmail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+
+  function finish(nombre){
+    doneTitle.textContent = nombre ? ('¡Gracias, '+nombre.split(' ')[0]+'!') : '¡Listo!';
+    formSection.style.display='none';
+    document.querySelector('.form-note').style.display='none';
+    doneSection.style.display='block';
+    if(!WHATSAPP_URL.includes('REEMPLAZAR')){ setTimeout(()=>{window.location.href=WHATSAPP_URL;},1400); }
+  }
+
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    const nombre=document.getElementById('nombre').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const telefono=document.getElementById('telefono').value.trim();
+    errBox.textContent='';
+    if(!nombre){errBox.textContent='Por favor escribe tu nombre.';return;}
+    if(!validEmail(email)){errBox.textContent='Escribe un correo válido.';return;}
+    if(telefono.replace(/\D/g,'').length<7){errBox.textContent='Escribe un teléfono válido.';return;}
+
+    btn.disabled=true;btn.textContent='Enviando...';
+    const data=new URLSearchParams({nombre:nombre,email:email,telefono:telefono,evento:'Cadena de amor por Venezuela'});
+
+    if(SCRIPT_URL.includes('PEGA_AQUI')){console.warn('Configura SCRIPT_URL para guardar en la hoja.');finish(nombre);return;}
+
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
+      .then(()=>finish(nombre))
+      .catch(()=>{
+        const img=new Image();
+        img.onload=img.onerror=()=>finish(nombre);
+        img.src=SCRIPT_URL+'?'+data.toString();
+      });
+  });
+</script>
+</body>
+</html>
